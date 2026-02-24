@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo "Preparing the Java project..."
+  build:
+    commands:
+      - echo "Compiling the project..."
+      - javac -d /bin src/App.java
+      - cd /bin
+      - jar cfe app.jar App App.class
+  post_build:
+    commands: 
+      - echo "Done building the project. Thank you."
+artifacts:
+  files:
+    - ./bin/app.jar
+    - appsec.yaml
+  base-directory: $CODEBUILD_SRC_DIR
+  discard-paths: yes
+
+
