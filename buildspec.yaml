@@ -18,7 +18,7 @@ phases:
       - echo "Done building the project. Thank you."
 artifacts:
   files:
-    - ./bin/app.jar
+    - /bin/app.jar
     - appsec.yaml
   base-directory: $CODEBUILD_SRC_DIR
   discard-paths: yes
